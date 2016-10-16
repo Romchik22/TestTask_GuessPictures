@@ -19,13 +19,13 @@ function workWithPictures(w, h){
 			if(number == 10) {
 				number = 0;
 			}
-		var first = random.myRandom(countPictures);
-		matrixOfNumbers[Math.floor(first / h)][first % h] = number;
+			var first = random.myRandom(countPictures);
+			matrixOfNumbers[Math.floor(first / h)][first % h] = number;
 
-		var second = random.myRandom(countPictures);
-		matrixOfNumbers[Math.floor(second / h)][second % h] = number;
-		number++;
-		temp += 2;
+			var second = random.myRandom(countPictures);
+			matrixOfNumbers[Math.floor(second / h)][second % h] = number;
+			number++;
+			temp += 2;
 		}
 
 		temp = 0;
@@ -53,30 +53,30 @@ function workWithPictures(w, h){
 		  	var td = target.closest('td');
 		  	if(!arrayPictures[td.id].isDisable) {
 		  		if(!arrayPictures[td.id].isVisible) {
-		  			var url = "https://kde.link/test/"+ arrayPictures[td.id].numberPicture  +".png";
+		  			var url = "https://kde.link/test/" + arrayPictures[td.id].numberPicture + ".png";
 		  			document.getElementById('img'+td.id).src = url;
 		  			arrayPictures[td.id].isVisible = true;
 		  			check++;
 		  			if(tempObject) {
-		  				if(tempObject.position != td.id && tempObject.numberPicture == arrayPictures[td.id].numberPicture && check < 3){
+		  				if(tempObject.position !== td.id && tempObject.numberPicture === arrayPictures[td.id].numberPicture && check < 3){
 		 					var url = 'https://d2e111jq13me73.cloudfront.net/sites/all/themes/commonsense/images/favicons/favicon-96x96.png';
 		 						setTimeout(function(){
-		  						document.getElementById('img'+td.id).src = url;
-		 						document.getElementById('img'+tempObject.position).src = url;
+		  						document.getElementById('img' + td.id).src = url;
+		 						document.getElementById('img' + tempObject.position).src = url;
 		 						tempObject.isDisable = true;
 		 						arrayPictures[td.id].isDisable = true;
-		 						tempObject = undefined;
+		 						tempObject = null;
 		 						check = 0;
 		 						}, 300);
 
 		  				} else {
 		  					var url = 'http://icdn.pro/images/en/p/e/penguin-icone-9062-96.png';
 		  					setTimeout(function(){
-		  						document.getElementById('img'+td.id).src = url;
-		 						document.getElementById('img'+tempObject.position).src = url;
+		  						document.getElementById('img' + td.id).src = url;
+		 						document.getElementById('img' + tempObject.position).src = url;
 		 						tempObject.isVisible = false;
 		 						arrayPictures[td.id].isVisible = false;
-		 						tempObject = undefined;
+		 						tempObject = null;
 		 						check = 0;
 		 					}, 300);
 		  				
@@ -87,9 +87,9 @@ function workWithPictures(w, h){
 		  		} else {
 		  			if(check < 2){
 		  			var url = 'http://icdn.pro/images/en/p/e/penguin-icone-9062-96.png';
-		  			document.getElementById('img'+td.id).src = url;
+		  			document.getElementById('img' + td.id).src = url;
 		  			arrayPictures[td.id].isVisible = false;
-		  			tempObject = undefined;
+		  			tempObject = null;
 		  			check = 0;
 		  			}
 	  			}	
